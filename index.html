@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Axel Pettersson</title>
+<meta name="description" content="Axel Pettersson. Master's in finance, looking for a first job in finance in Stockholm. Thesis, current project and CV.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Axel Pettersson">
+<meta property="og:description" content="Axel Pettersson. Master's in finance, looking for a first job in finance in Stockholm. Thesis, current project and CV.">
+<meta property="og:image" content="photo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap">
+<style>
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+/* Layout: the sunrise photo opens the page with the headline set in its sky; below it, one reading column with a mono label rail. Colours are taken from the photo: cloud, rock, morning blue, alpenglow. */
+:root {
+  --bg: #F4F6F8;
+  --surface: #E7ECF1;
+  --ink: #142130;
+  --muted: #566578;
+  --rule: #CBD4DE;
+  --accent: #2C5A8C;
+  --mark: #F7C9AC;
+  /* The photo is the same in both themes, so text set on it keeps one colour. */
+  --on-photo: #101B28;
+  --photo-mark: #F7C9AC;
+  --dawn-a: #859EBD;
+  --dawn-b: #E7C8A9;
+
+  --display: "Familjen Grotesk", "Avenir Next", "Segoe UI", Helvetica, Arial, sans-serif;
+  --body: "Source Serif 4", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E151D; --surface: #17212C; --ink: #E5EAF0; --muted: #9AA8B8;
+    --rule: #2A3644; --accent: #9DC3EA; --mark: #7A4A33;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E151D; --surface: #17212C; --ink: #E5EAF0; --muted: #9AA8B8;
+  --rule: #2A3644; --accent: #9DC3EA; --mark: #7A4A33;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.page {
+  max-width: 58rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 5vw, 2.5rem);
+  padding-block: 1.5rem 3rem;
+}
+p, h1, h2, h3, ol, ul, dl, dd, figure { margin: 0; }
+ol, ul { padding: 0; list-style: none; }
+a { color: var(--accent); }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Top bar */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.5rem 1rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.25rem;
+}
+.name {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+}
+.place {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+
+/* Opening: photo with the headline in its sky */
+.hero {
+  position: relative;
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 6px;
+  background: var(--dawn-a);
+}
+h1 {
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+h1 mark {
+  color: inherit;
+  background: linear-gradient(var(--mark), var(--mark)) no-repeat 0 0 / 100% 100%;
+  padding: 0 0.12em;
+  margin: 0 -0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+@media (prefers-reduced-motion: no-preference) {
+  h1 mark { animation: sweep 0.7s 0.2s cubic-bezier(.2,.7,.2,1) backwards; }
+  @keyframes sweep { from { background-size: 0% 100%; } }
+}
+/* Wide: headline sits on the open sky above the peaks */
+@media (min-width: 44rem) {
+  .hero h1 {
+    position: absolute;
+    top: 5.5cqi;
+    left: 5cqi;
+    right: 5cqi;
+    font-size: 6.5cqi;
+    color: var(--on-photo);
+  }
+  .hero h1 mark { background-image: linear-gradient(var(--photo-mark), var(--photo-mark)); }
+}
+/* Narrow: headline first, then a taller crop that keeps Axel and the peaks */
+@media (max-width: 43.99rem) {
+  .hero h1 { font-size: clamp(2.1rem, 9.5vw, 3rem); padding-top: 0.75rem; }
+  .hero img { aspect-ratio: 4 / 5; object-position: 19% 100%; }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-block: clamp(2rem, 6vw, 3.25rem);
+}
+.lede { max-width: 37rem; font-size: 1.1875rem; line-height: 1.55; }
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.75rem;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.facts li::before { content: "•"; color: var(--accent); margin-right: 0.55em; }
+
+/* Documents and contact */
+.reach { display: flex; flex-direction: column; gap: 0.9rem; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+.btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.55em;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.2;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--ink);
+  border-radius: 4px;
+  padding: 0.6rem 1rem;
+  text-decoration: none;
+}
+.btn small { font-family: var(--mono); font-weight: 400; font-size: 0.6875rem; letter-spacing: 0.08em; opacity: 0.75; }
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn:hover { border-color: var(--accent); }
+.btn.primary:hover { background: var(--accent); }
+.mail {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 0.75rem;
+  font-family: var(--mono);
+  font-size: 0.875rem;
+}
+.mail .addr { user-select: all; overflow-wrap: anywhere; min-width: 0; }
+.copy {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.15rem 0.5rem;
+  cursor: pointer;
+}
+.copy:hover { border-color: var(--accent); }
+.status-line { font-family: var(--mono); font-size: 0.8125rem; color: var(--muted); }
+
+/* Sections */
+.sec {
+  display: grid;
+  grid-template-columns: 9.5rem minmax(0, 1fr);
+  gap: 1.25rem 2.5rem;
+  padding-block: 2.75rem;
+  border-top: 1px solid var(--rule);
+}
+.label {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding-top: 0.45rem;
+}
+.body { display: flex; flex-direction: column; gap: 1.5rem; min-width: 0; }
+.body > p { max-width: 36rem; }
+h2 {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(1.5rem, 3.6vw, 2rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  max-width: 22em;
+  text-wrap: balance;
+}
+.sub { font-family: var(--mono); font-size: 0.8125rem; color: var(--muted); max-width: 36rem; }
+.tag {
+  align-self: flex-start;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  background: var(--mark);
+  border-radius: 2px;
+  padding: 0.2rem 0.55rem;
+}
+
+/* Thesis: the four steps, in the order they happened */
+.flow {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.5rem;
+  counter-reset: step;
+}
+.flow li {
+  counter-increment: step;
+  background: var(--surface);
+  border-radius: 3px;
+  padding: 0.85rem 0.9rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.flow li::before {
+  content: counter(step);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--accent);
+}
+.flow strong {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  line-height: 1.2;
+}
+.flow span { font-size: 0.9375rem; line-height: 1.4; color: var(--muted); }
+
+/* Thesis: results, ruled like a regression table */
+.spec {
+  display: grid;
+  grid-template-columns: 8.5rem minmax(0, 1fr);
+  border-top: 2px solid var(--ink);
+  border-bottom: 2px solid var(--ink);
+  max-width: 38rem;
+}
+.spec dt, .spec dd { padding-block: 0.6rem; border-top: 1px solid var(--rule); }
+.spec dt:first-of-type, .spec dt:first-of-type + dd { border-top: 0; }
+.spec dt {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  padding-top: 0.8rem;
+  padding-right: 1rem;
+}
+.spec dd { font-size: 1rem; line-height: 1.5; }
+
+/* Project: what a company page will show */
+.demo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  background: var(--surface);
+  border-radius: 4px;
+  padding: 1rem 1.1rem 1.15rem;
+  max-width: 38rem;
+}
+.demo figcaption { font-family: var(--mono); font-size: 0.75rem; color: var(--muted); }
+.diff { display: grid; grid-template-columns: 5.25rem minmax(0, 1fr); gap: 0.1rem 0.75rem; align-items: baseline; }
+.diff b { font-family: var(--mono); font-weight: 500; font-size: 0.75rem; letter-spacing: 0.04em; color: var(--muted); }
+.diff del { color: var(--muted); text-decoration-thickness: 1px; }
+.diff ins { text-decoration: none; background: var(--mark); padding: 0 0.2em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.diff span { font-size: 1rem; line-height: 1.5; }
+
+.feats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem 1.5rem; }
+.feats li { display: flex; flex-direction: column; gap: 0.3rem; border-top: 2px solid var(--ink); padding-top: 0.7rem; }
+.feats strong { font-family: var(--display); font-weight: 600; font-size: 1.0625rem; line-height: 1.2; }
+.feats span { font-size: 0.9375rem; line-height: 1.45; color: var(--muted); }
+
+/* Tools */
+.tools { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.tools li {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.25rem 0.6rem;
+}
+
+/* Dated entries */
+.entries { display: flex; flex-direction: column; gap: 1.5rem; }
+.entry { display: grid; grid-template-columns: 8.5rem minmax(0, 1fr); gap: 0.15rem 1.25rem; }
+.when {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  padding-top: 0.3rem;
+}
+.what { display: flex; flex-direction: column; gap: 0.15rem; max-width: 30rem; }
+h3 { font-family: var(--display); font-weight: 600; font-size: 1.1875rem; line-height: 1.25; }
+.where { color: var(--muted); }
+.note { font-size: 1rem; }
+
+.plain { display: flex; flex-direction: column; gap: 0.6rem; max-width: 36rem; }
+
+/* Footer: a horizon line in the photo's two sky colours */
+.foot {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--muted);
+}
+.foot::before {
+  content: "";
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--dawn-a), var(--dawn-b));
+}
+.foot span { overflow-wrap: anywhere; }
+
+@media (max-width: 44rem) {
+  .sec { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; padding-block: 2.25rem; }
+  .label { padding-top: 0; }
+  .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .feats { grid-template-columns: minmax(0, 1fr); }
+  .entry { grid-template-columns: minmax(0, 1fr); }
+  .when { padding-top: 0; }
+}
+@media (max-width: 26rem) {
+  .flow { grid-template-columns: minmax(0, 1fr); }
+  .spec, .diff { grid-template-columns: minmax(0, 1fr); }
+  .spec dt { padding-bottom: 0; }
+  .spec dd { border-top: 0; padding-top: 0.1rem; }
+}
+</style>
+</head>
+<body>
+<div class="page" lang="en">
+
+  <header class="top">
+    <div class="name">Axel Pettersson</div>
+    <div class="place">Stockholm</div>
+  </header>
+
+  <figure class="hero">
+    <h1>I'm looking for my <mark>first job in finance</mark> in Stockholm.</h1>
+    <img src="photo.jpg" width="1600" height="1200" alt="Axel smiling at sunrise above a sea of clouds, with snow-covered mountain peaks behind him.">
+  </figure>
+
+  <section class="intro">
+    <p class="lede">I studied a master's in finance at the School of Business, Economics and Law in Gothenburg. For our thesis, my co-author and I wrote a Python algorithm that reads the SEC filings of US-listed companies to find the ones run by their founder. I'd like to keep doing that kind of work, where you take a large, messy source, make it measurable and run the numbers.</p>
+    <ul class="facts">
+      <li>Based in Stockholm</li>
+      <li>Can start right away</li>
+      <li>Swedish and English</li>
+    </ul>
+    <div class="reach">
+      <div class="actions">
+        <a class="btn primary" id="get-cv" href="Axel_Pettersson_CV.pdf" target="_blank" rel="noopener">CV <small>PDF</small></a>
+        <a class="btn" id="get-thesis" href="Axel_Pettersson_Master_Thesis.pdf" target="_blank" rel="noopener">Master's thesis <small>PDF</small></a>
+      </div>
+      <div class="mail">
+        <span class="addr" id="email">petterssonaxel99@gmail.com</span>
+        <button type="button" class="copy" id="copy-email">Copy</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="label">Thesis</div>
+    <div class="body">
+      <h2>Do companies run by their founder differ from the rest?</h2>
+      <p class="sub">Founder-CEOs and Firm Value: Evidence from Performance, Returns, and Investment Behavior in U.S. Firms. Co-authored, June 2026. Grade A.</p>
+      <p>We followed 1,578 US-listed firms from 2010 to 2024 and asked whether having a founder as CEO goes together with differences in valuation, stock returns and investment. We built the founder data ourselves, in four steps.</p>
+      <ol class="flow">
+        <li><strong>SEC filings</strong><span>Proxy statements and annual reports from EDGAR.</span></li>
+        <li><strong>Python scan</strong><span>Flags paragraphs where "founder" and "CEO" appear together.</span></li>
+        <li><strong>Checked by hand</strong><span>Every flagged case verified. 180 founder-led firms confirmed.</span></li>
+        <li><strong>Panel regressions</strong><span>OLS with firm, industry and year fixed effects.</span></li>
+      </ol>
+      <dl class="spec">
+        <dt>Sample</dt><dd>1,578 firms, 23,643 firm-years, 2010–2024</dd>
+        <dt>Valuation</dt><dd>Founder-led firms had a higher Tobin's Q in every model: about 30% higher in the baseline and about 16% within the same firm.</dd>
+        <dt>Returns</dt><dd>No stock return premium once firm characteristics and fixed effects were included.</dd>
+        <dt>Investment</dt><dd>More spending on R&amp;D. Little difference in capital expenditure.</dd>
+      </dl>
+      <p><a href="Axel_Pettersson_Master_Thesis.pdf" target="_blank" rel="noopener">Read the full thesis (PDF)</a></p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="label">Building now</div>
+    <div class="body">
+      <span class="tag">In progress · launching soon</span>
+      <h2>What is corporate Sweden saying differently this year?</h2>
+      <p class="sub">Language-based research on annual reports from Nasdaq Stockholm's main market.</p>
+      <p>Annual reports are mostly words, and most analysis only uses the numbers. I'm building a research site that treats the text as data. It compares each company's report for financial year 2025 with the one for 2024 and measures how much the language changed, and where. It's the same kind of Python text analysis as in the thesis, pointed at the Swedish market.</p>
+
+      <figure class="demo">
+        <figcaption>What a company page will show. Made-up example, not from a real report.</figcaption>
+        <div class="diff">
+          <b>Removed</b><span><del>We see limited exposure to changes in interest rates.</del></span>
+          <b>Added</b><span><ins>Higher interest rates have increased our refinancing risk.</ins></span>
+        </div>
+      </figure>
+
+      <ul class="feats">
+        <li><strong>A ranked table</strong><span>One change score per company for the risk section and one for the CEO letter.</span></li>
+        <li><strong>Sentence by sentence</strong><span>Click a company to read what was added and what was removed.</span></li>
+        <li><strong>Open method</strong><span>A plain method page, with the code on GitHub.</span></li>
+      </ul>
+
+      <p>The approach follows Lazy Prices (Cohen, Malloy and Nguyen, Journal of Finance, 2020), which found that US firms that changed the wording of their annual reports later underperformed. I haven't tested that on Swedish companies, so I'm building this as a way to decide which reports to read first, not as a trading signal.</p>
+      <p>I'll link it here when it's live.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="label">How I work</div>
+    <div class="body">
+      <p>I pick up new tools and subjects quickly. AI tools like Claude and ChatGPT are a normal part of how I do analysis, and I used them to speed up coding and analysis in my thesis. On a team, I hope I can bring that habit with me and show where AI actually saves time.</p>
+      <p>My background is in both economics and political science, so I'm used to putting numbers in context.</p>
+      <ul class="tools" aria-label="Tools">
+        <li>Python</li><li>Excel</li><li>Stata</li><li>R</li><li>Matlab</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="label">Education</div>
+    <div class="body">
+      <div class="entries">
+        <div class="entry">
+          <div class="when">2024–2026</div>
+          <div class="what">
+            <h3>Master's programme in Finance</h3>
+            <div class="where">School of Business, Economics and Law, University of Gothenburg</div>
+            <p class="note">Master's thesis graded A. Courses in private equity and derivatives, among others. Private equity was my favourite.</p>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2025–2026</div>
+          <div class="what">
+            <h3>Exchange semester</h3>
+            <div class="where">Maastricht University</div>
+          </div>
+        </div>
+        <div class="entry">
+          <div class="when">2020–2024</div>
+          <div class="what">
+            <h3>Double bachelor's degree in economics and political science</h3>
+            <div class="where">Linköping University</div>
+            <p class="note">With an exchange semester at Aalborg University, 2022–2023.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="label">About me</div>
+    <div class="body">
+      <p>I've invested on my own in the Swedish and US stock markets for five years. Away from the desk I like to travel, hike and cook. I'm a sports fan in general and a football fan in particular.</p>
+    </div>
+  </section>
+
+  <footer class="foot"><span>Axel Pettersson · Stockholm · petterssonaxel99@gmail.com</span></footer>
+</div>
+
+<script>
+(function () {
+  var btn = document.getElementById('copy-email');
+  var addr = document.getElementById('email');
+  function selectAddr() {
+    try {
+      var range = document.createRange();
+      range.selectNodeContents(addr);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    } catch (e) {}
+  }
+  btn.addEventListener('click', function () {
+    var done = function () { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy'; }, 1800); };
+    try {
+      navigator.clipboard.writeText(addr.textContent).then(done, selectAddr);
+    } catch (e) { selectAddr(); }
+  });
+})();
+</script>
+</body>
+</html>
