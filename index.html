@@ -432,29 +432,24 @@ h3 { font-family: var(--display); font-weight: 600; font-size: 1.1875rem; line-h
   </section>
 
   <section class="sec">
-    <div class="label">Building now</div>
+    <div class="label">Current project</div>
     <div class="body">
-      <span class="tag">In progress · launching soon</span>
-      <h2>What is corporate Sweden saying differently this year?</h2>
-      <p class="sub">Language-based research on annual reports from Nasdaq Stockholm's main market.</p>
-      <p>Annual reports are mostly words, and most analysis only uses the numbers. I'm building a research site that treats the text as data. It compares each company's report for financial year 2025 with the one for 2024 and measures how much the language changed, and where. It's the same kind of Python text analysis as in the thesis, pointed at the Swedish market.</p>
-
-      <figure class="demo">
-        <figcaption>What a company page will show. Made-up example, not from a real report.</figcaption>
-        <div class="diff">
-          <b>Removed</b><span><del>We see limited exposure to changes in interest rates.</del></span>
-          <b>Added</b><span><ins>Higher interest rates have increased our refinancing risk.</ins></span>
-        </div>
-      </figure>
+      <h2>Reading company reports as data</h2>
+      <p>Company reports are mostly words, but most analysis only uses the numbers. I'm interested in what happens when you treat the text as data: take thousands of pages, make them comparable, and measure what changes from one report to the next.</p>
+      <p>That's the same idea as my thesis, where a Python script read SEC filings so we didn't have to read them all by hand. Here I'm pointing it at Swedish listed companies.</p>
 
       <ul class="feats">
-        <li><strong>A ranked table</strong><span>One change score per company for the risk section and one for the CEO letter.</span></li>
-        <li><strong>Sentence by sentence</strong><span>Click a company to read what was added and what was removed.</span></li>
-        <li><strong>Open method</strong><span>A plain method page, with the code on GitHub.</span></li>
+        <li><strong>Change</strong><span>How much a company rewrote its risk section or CEO letter compared with last time, and which sentences were added or removed.</span></li>
+        <li><strong>Tone</strong><span>Whether the language moves toward more cautious or more confident wording, using word lists from published research.</span></li>
+        <li><strong>Risk</strong><span>New risks that show up in the text before they show up in the numbers, such as refinancing, customer concentration or a specific market.</span></li>
       </ul>
 
-      <p>The approach follows Lazy Prices (Cohen, Malloy and Nguyen, Journal of Finance, 2020), which found that US firms that changed the wording of their annual reports later underperformed. I haven't tested that on Swedish companies, so I'm building this as a way to decide which reports to read first, not as a trading signal.</p>
-      <p>I'll link it here when it's live.</p>
+      <p>The research behind this is Lazy Prices (Cohen, Malloy and Nguyen, Journal of Finance, 2020). They found that US firms that changed the wording of their reports later underperformed. I haven't tested whether that holds in Sweden. For now I see the method as a way to decide which reports to read first, not as a trading signal.</p>
+
+      <dl class="spec">
+        <dt>Built so far</dt><dd>A prototype that compares annual reports for 2024 and 2025 from Nasdaq Stockholm's main market. It finds the risk section and CEO letter in each report, scores how much they changed, and shows the added and removed sentences side by side.</dd>
+        <dt>Next step</dt><dd>Quarterly reports. Annual reports come once a year and are heavy to work with. Quarterly reports come four times as often, so changes show up sooner. That's where I'm taking it next.</dd>
+      </dl>
     </div>
   </section>
 
