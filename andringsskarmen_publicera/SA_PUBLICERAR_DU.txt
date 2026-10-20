@@ -1,0 +1,6 @@
+1. Packa upp zip-filen. Du får mappen "andringsskarmen" (4 filer).
+2. Lägg mappen i ditt repo axelpettersson99.github.io, bredvid din index.html.
+3. Lägg till en länk på din pitch-sida, t.ex.:
+   <a href="andringsskarmen/">Ändringsskärmen: vilka börsbolag skrev om sina riskavsnitt 2025</a>
+4. Commit + push (GitHub Desktop: Commit to main -> Push origin).
+5. Efter 1-2 minuter: https://axelpettersson99.github.io/andringsskarmen/
