@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Axel Pettersson</title>
-<meta name="description" content="Axel Pettersson. Master's in finance, looking for a first job in finance in Stockholm. Thesis, current project and CV.">
+<meta name="description" content="Axel Pettersson. Master's in finance, looking for a first job in finance in Stockholm. Thesis, work examples, current project and CV.">
 <meta name="robots" content="noindex">
 <meta property="og:title" content="Axel Pettersson">
-<meta property="og:description" content="Axel Pettersson. Master's in finance, looking for a first job in finance in Stockholm. Thesis, current project and CV.">
+<meta property="og:description" content="Axel Pettersson. Master's in finance, looking for a first job in finance in Stockholm. Thesis, work examples, current project and CV.">
 <meta property="og:image" content="photo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -294,6 +294,46 @@ h2 {
 }
 .spec dd { font-size: 1rem; line-height: 1.5; }
 
+/* Work examples: two cases side by side, each ending in its PDF */
+.cases { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem 2rem; }
+.case {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 2px solid var(--ink);
+  padding-top: 0.9rem;
+}
+.kicker {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+.case h3 { font-size: 1.3125rem; line-height: 1.2; text-wrap: balance; }
+.case p { font-size: 1rem; line-height: 1.55; }
+.figs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  background: var(--surface);
+  border-radius: 3px;
+  padding: 0.75rem 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+.figs li { display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 0.75rem; align-items: baseline; }
+.figs b { font-weight: 500; font-size: 0.9375rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+.more .files { margin-top: 0.4rem; font-family: var(--mono); font-weight: 400; font-size: 0.8125rem; line-height: 1.5; color: var(--muted); }
+.more {
+  margin-top: auto;
+  padding-top: 0.25rem;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 1rem;
+}
+
 /* Project: what a company page will show */
 .demo {
   display: flex;
@@ -365,6 +405,7 @@ h3 { font-family: var(--display); font-weight: 600; font-size: 1.1875rem; line-h
   .label { padding-top: 0; }
   .flow { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .feats { grid-template-columns: minmax(0, 1fr); }
+  .cases { grid-template-columns: minmax(0, 1fr); gap: 2.25rem; }
   .entry { grid-template-columns: minmax(0, 1fr); }
   .when { padding-top: 0; }
 }
@@ -373,6 +414,7 @@ h3 { font-family: var(--display); font-weight: 600; font-size: 1.1875rem; line-h
   .spec, .diff { grid-template-columns: minmax(0, 1fr); }
   .spec dt { padding-bottom: 0; }
   .spec dd { border-top: 0; padding-top: 0.1rem; }
+  .figs li { grid-template-columns: minmax(0, 1fr); gap: 0; }
 }
 </style>
 </head>
@@ -400,7 +442,6 @@ h3 { font-family: var(--display); font-weight: 600; font-size: 1.1875rem; line-h
       <div class="actions">
         <a class="btn primary" id="get-cv" href="Axel_Pettersson_CV.pdf" target="_blank" rel="noopener">CV <small>PDF</small></a>
         <a class="btn" id="get-thesis" href="Axel_Pettersson_Master_Thesis.pdf" target="_blank" rel="noopener">Master's thesis <small>PDF</small></a>
-        <a class="btn" id="go-linkedin" href="https://www.linkedin.com/in/axel-pettersson-1aa21127b" target="_blank" rel="noopener">LinkedIn</a>
       </div>
       <div class="mail">
         <span class="addr" id="email">petterssonaxel99@gmail.com</span>
@@ -431,26 +472,68 @@ h3 { font-family: var(--display); font-weight: 600; font-size: 1.1875rem; line-h
     </div>
   </section>
 
-  <section class="sec">
-    <div class="label">Current project</div>
+  <section class="sec" id="work">
+    <div class="label">Work examples</div>
     <div class="body">
-      <h2>Reading company reports as data</h2>
-      <p>Company reports are mostly words, but most analysis only uses the numbers. I'm interested in what happens when you treat the text as data: take thousands of pages, make them comparable, and measure what changes from one report to the next.</p>
-      <p>That's the same idea as my thesis, where a Python script read SEC filings so we didn't have to read them all by hand. Here I'm pointing it at Swedish listed companies.</p>
+      <h2>Two short pieces of work, done the way I'd do them in a job.</h2>
+      <p class="sub">Both use public data only. Each is a short PDF, and the SQL case comes with its code and data.</p>
+      <div class="cases">
+
+        <article class="case">
+          <p class="kicker">Working example · Buyer research · Oct 2026</p>
+          <h3>How I find buyers for a small company being sold</h3>
+          <p>A worked example for a family-owned sheet-metal company in Småland. I write the search brief before looking at any names, use AI to collect buyers and past deals in four parallel tracks, then screen each buyer on its own published criteria and score the shortlist in Excel. The company is made up. Every buyer and deal is real and sourced.</p>
+          <ul class="figs">
+            <li><b>38</b><span>buyers considered</span></li>
+            <li><b>14</b><span>cut, each with a written reason</span></li>
+            <li><b>6</b><span>on the priority A list, checked by hand</span></li>
+          </ul>
+          <a class="more" href="Axel_Pettersson_Buyer_Research_Method.pdf" target="_blank" rel="noopener">Read the method (PDF, 9 pages)</a>
+        </article>
+
+        <article class="case">
+          <p class="kicker">Working example · Data analysis in SQL · Nov 2026</p>
+          <h3>Swedish consumer borrowers are still paying for rates that have already fallen</h3>
+          <p>Using SCB's financial market statistics, I measured how far rates on existing consumer loans lag behind rates on new ones as rates come down, and what that gap is worth to a lender offering refinancing. I also point out where the data could be misleading me: reporting breaks, changes in borrower mix, and averages that hide the tail.</p>
+          <ul class="figs">
+            <li><b>0.72 pp</b><span>average gap, existing vs. new loans, since 2025</span></li>
+            <li><b>~2.2 bn</b><span>SEK a year paid above today's new-loan rates</span></li>
+            <li><b>6.0%</b><span>of consumer loans non-performing</span></li>
+          </ul>
+          <div class="more">
+            <a href="axel-pettersson-consumer-loan-repricing.pdf" target="_blank" rel="noopener">Read the case study (PDF, 1 page)</a>
+            <p class="files">Code and data: <a href="analysis.sql" target="_blank" rel="noopener">analysis.sql</a> · <a href="scb_household_lending_rates.csv" download>lending rates (CSV)</a> · <a href="scb_household_loans_npl.csv" download>non-performing loans (CSV)</a></p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="label">Building now</div>
+    <div class="body">
+      <span class="tag">In progress · launching soon</span>
+      <h2>What is corporate Sweden saying differently this year?</h2>
+      <p class="sub">Language-based research on annual reports from Nasdaq Stockholm's main market.</p>
+      <p>Annual reports are mostly words, and most analysis only uses the numbers. I'm building a research site that treats the text as data. It compares each company's report for financial year 2025 with the one for 2024 and measures how much the language changed, and where. It's the same kind of Python text analysis as in the thesis, pointed at the Swedish market.</p>
+
+      <figure class="demo">
+        <figcaption>What a company page will show. Made-up example, not from a real report.</figcaption>
+        <div class="diff">
+          <b>Removed</b><span><del>We see limited exposure to changes in interest rates.</del></span>
+          <b>Added</b><span><ins>Higher interest rates have increased our refinancing risk.</ins></span>
+        </div>
+      </figure>
 
       <ul class="feats">
-        <li><strong>Change</strong><span>How much a company rewrote its risk section or CEO letter compared with last time, and which sentences were added or removed.</span></li>
-        <li><strong>Tone</strong><span>Whether the language moves toward more cautious or more confident wording, using word lists from published research.</span></li>
-        <li><strong>Risk</strong><span>New risks that show up in the text before they show up in the numbers, such as refinancing, customer concentration or a specific market.</span></li>
+        <li><strong>A ranked table</strong><span>One change score per company for the risk section and one for the CEO letter.</span></li>
+        <li><strong>Sentence by sentence</strong><span>Click a company to read what was added and what was removed.</span></li>
+        <li><strong>Open method</strong><span>A plain method page, with the code on GitHub.</span></li>
       </ul>
 
-      <p>The research behind this is Lazy Prices (Cohen, Malloy and Nguyen, Journal of Finance, 2020). They found that US firms that changed the wording of their reports later underperformed. I haven't tested whether that holds in Sweden. For now I see the method as a way to decide which reports to read first, not as a trading signal.</p>
-
-      <dl class="spec">
-        <dt>Built so far</dt><dd>A prototype that compares annual reports for 2024 and 2025 from Nasdaq Stockholm's main market. It finds the risk section and CEO letter in each report, scores how much they changed, and shows the added and removed sentences side by side.</dd>
-        <dt>Next step</dt><dd>Quarterly reports. Annual reports come once a year and are heavy to work with. Quarterly reports come four times as often, so changes show up sooner. That's where I'm taking it next.</dd>
-      </dl>
-            <p><a href="andringsskarmen/">See the screen: which Swedish listed companies rewrote their risk section in 2025 →</a></p>
+      <p>The approach follows Lazy Prices (Cohen, Malloy and Nguyen, Journal of Finance, 2020), which found that US firms that changed the wording of their annual reports later underperformed. I haven't tested that on Swedish companies, so I'm building this as a way to decide which reports to read first, not as a trading signal.</p>
+      <p>I'll link it here when it's live.</p>
     </div>
   </section>
 
@@ -460,7 +543,7 @@ h3 { font-family: var(--display); font-weight: 600; font-size: 1.1875rem; line-h
       <p>I pick up new tools and subjects quickly. AI tools like Claude and ChatGPT are a normal part of how I do analysis, and I used them to speed up coding and analysis in my thesis. On a team, I hope I can bring that habit with me and show where AI actually saves time.</p>
       <p>My background is in both economics and political science, so I'm used to putting numbers in context.</p>
       <ul class="tools" aria-label="Tools">
-        <li>Python</li><li>Excel</li><li>Stata</li><li>R</li><li>Matlab</li>
+        <li>Python</li><li>SQL</li><li>Excel</li><li>Stata</li><li>R</li><li>Matlab</li>
       </ul>
     </div>
   </section>
@@ -503,7 +586,7 @@ h3 { font-family: var(--display); font-weight: 600; font-size: 1.1875rem; line-h
     </div>
   </section>
 
-  <footer class="foot"><span>Axel Pettersson · Stockholm · petterssonaxel99@gmail.com · <a href="https://www.linkedin.com/in/axel-pettersson-1aa21127b" target="_blank" rel="noopener">LinkedIn</a></span></footer>
+  <footer class="foot"><span>Axel Pettersson · Stockholm · petterssonaxel99@gmail.com</span></footer>
 </div>
 
 <script>
